@@ -10,14 +10,13 @@ echo "KERNEL=4.4.60" >> $GITHUB_ENV || true
 rm -rf package/libs package/utils package/network package/system package/devel
 svn co https://github.com/openwrt/openwrt/branches/openwrt-22.03/package/libs package/libs
 
-rm -rf feeds/packages/net/gnunet*
-rm -rf feeds/kiddin9/fullconenat
+sed -i "s/iptables ip6tables //" include/target.mk
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a -p kiddin9 -f
 ./scripts/feeds install -a
 
-sed -i 's/DEFAULT_PACKAGES +=/DEFAULT_PACKAGES += luci-app-cpufreq automount/' target/linux/ipq60xx/Makefile
-
+sed -i 's/DEFAULT_PACKAGES +=/DEFAULT_PACKAGES += luci-app-cpufreq automount procd/' target/linux/ipq60xx/Makefile
 
 echo '
 CONFIG_ARM64_CRYPTO=y
