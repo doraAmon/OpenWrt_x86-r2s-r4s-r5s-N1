@@ -10,10 +10,6 @@ svn export --force https://github.com/kiddin9/openwrt-ax1800/trunk/package/kerne
 svn co https://github.com/kiddin9/openwrt-ax1800/trunk/target/linux/generic target/linux/generic
 svn co https://github.com/kiddin9/openwrt-ax1800/trunk/target/linux/ipq60xx target/linux/ipq60xx
 
-./scripts/feeds update -a
-./scripts/feeds install -a -p kiddin9 -f
-./scripts/feeds install -a
-
 sed -i 's/DEFAULT_PACKAGES +=/DEFAULT_PACKAGES += luci-app-cpufreq automount/' target/linux/ipq60xx/Makefile
 
 echo '
