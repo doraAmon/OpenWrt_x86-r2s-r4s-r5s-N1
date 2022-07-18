@@ -1,6 +1,6 @@
 --- a/include/target.mk
 +++ b/include/target.mk
-@@@ -54,9 +54,7 @@ DEFAULT_PACKAGES.nas:=\
+@@ -54,9 +54,7 @@ DEFAULT_PACKAGES.nas:=\
  # For router targets
  DEFAULT_PACKAGES.router:=\
  	dnsmasq \
